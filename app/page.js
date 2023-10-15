@@ -5,6 +5,13 @@ export default async function Home() {
   // let result = await db.collection('post').find().toArray()
   // console.log(result)
   return (
-    <div>안녕</div>
+    <div style={{backgroundColor :  'rgb(249, 250, 255)',
+                width : '100%',
+                height : '85vh',
+                padding : '1px'}}>
+      <h4>
+        안녕
+      </h4>
+    </div>
   )
 }
