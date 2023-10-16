@@ -10,7 +10,7 @@ export default async function Home() {
                 height : '85vh',
                 padding : '1px'}}>
       <h4>
-        안녕
+        home
       </h4>
     </div>
   )

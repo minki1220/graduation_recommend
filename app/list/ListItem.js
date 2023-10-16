@@ -5,7 +5,26 @@ import Link from "next/link"
 export default function ListItem({result}) {
   return (
     <div>
+      {/* 글 작성 버튼 */}
+      <div style={{
+          display: 'flex',
+          justifyContent: 'flex-end'
+      }}>
+      <Link href={'/write'}>
+      <button style={{
+           marginTop : '10px',
+           marginRight : '30px',
+           backgroundColor : '#eee',
+           cursor : 'pointer',
+           border : '2px solid silver'
+      }}>
+        <span>글 작성하기</span>
+      </button>
+      </Link>
+      </div>
+
       { result.map((a,i)=>
+          <div className="list-box">
           <div className="list-item" key={i}>
             <Link href={'/detail/' + result[i]._id}>{result[i].title}</Link>
             <Link href={'/edit/' + result[i]._id} className="list-btn">✏️</Link>
@@ -37,10 +56,8 @@ export default function ListItem({result}) {
             
             <p>1월 1일</p>
           </div>
+          </div>
        ) }
-       {/* 글 작성 버튼 */}
-       <Link href={'/write'}>
-        <button><span>글 작성하기</span></button></Link>
     </div>
   )
 }
