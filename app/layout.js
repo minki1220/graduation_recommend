@@ -18,16 +18,21 @@ export default async function RootLayout({ children }) {
       <body>
       <div className="navbar">
       {/* 여기에 아이콘 추가하기 */}
-      <span className="logo">오늘 뭘 먹지?</span>
+      <span className="logo">오늘 뭐 먹지?</span>
       <div className='menu'>
       <Link href="/">홈</Link>
       <Link href="/foodRecommend">음식 추천</Link>
+      <Link href="/map">주변 맛집</Link>
       <Link href="/list">게시판</Link>
       </div>
       <div className='loginSignup-Btn'>
       { 
       session ? (
         <span style={{fontWeight : 'bold'}}>
+          <Link href="/mypage"><span style={
+            {fontSize : '16px',
+             marginRight : '10px'}}>마이페이지</span></Link>
+          
           {session.user.name}님 환영합니다. <LogOutBtn />
         </span>
       ) : (

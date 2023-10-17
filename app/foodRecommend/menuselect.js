@@ -55,138 +55,163 @@ export default function MenuSelector() {
 
   return (
     <div>
+    <div className='ml-100'>
       <div>
-        <h3>카테고리 선택:</h3>
         
-        <label>
+        <h3>카테고리 :</h3>
+
+      </div>
+          <div className='container'>
           <input
             type="radio"
+            id='meal'
             value="식사"
+            name='category'
             checked={category === '식사'}
             onChange={handleCategoryChange}
           />
-          식사
-        </label>
-        <label>
+          <label htmlFor='meal'>식사</label>
+        
+       
           <input
             type="radio"
+            id='cooking'
             value="요리"
+            name='category'
             checked={category === '요리'}
             onChange={handleCategoryChange}
           />
-          요리
-        </label>
-        <label>
+          <label htmlFor='cooking'>요리</label>
+      
+       
           <input
             type="radio"
+            id='snack'
             value="간식"
+            name='category'
             checked={category === '간식'}
             onChange={handleCategoryChange}
           />
-          간식
-        </label>
-      </div>
+          <label htmlFor='snack'>간식</label>
+          
+        </div>
+      
+     
       <div>
-        <h3>요리 종류 선택:</h3>
-        <label>
+        <h3>요리 종류 :</h3>
+      </div>
+
+        <div className='container'>
           <input
             type="radio"
+            id='korean'
             value="한식"
             checked={cuisine === '한식'}
             onChange={handleCuisineChange}
           />
-          한식
-        </label>
-        <label>
+          <label htmlFor='korean'>한식</label>
+       
+        
           <input
             type="radio"
+            id='chinese'
             value="중식"
             checked={cuisine === '중식'}
             onChange={handleCuisineChange}
           />
-          중식
-        </label>
-        <label>
+          <label htmlFor='chinese'>중식</label>
+        
+        
           <input
             type="radio"
+            id='western'
             value="양식"
             checked={cuisine === '양식'}
             onChange={handleCuisineChange}
           />
-          양식
-        </label>
-        <label>
+          <label htmlFor='western'>양식</label>
+        
           <input
             type="radio"
+            id='japanese'
             value="일식"
             checked={cuisine === '일식'}
             onChange={handleCuisineChange}
           />
-          일식
-        </label>
-        <label>
+          <label htmlFor='japanese'>일식</label>
+       
+       
           <input
             type="radio"
+            id='asian'
             value="아시아"
             checked={cuisine === '아시아'}
             onChange={handleCuisineChange}
           />
-          아시아
-        </label>
+          <label htmlFor='asian'>아시아</label>
+       
       </div>
+
+
       <div>
-        <h3>식사 기회 선택:</h3>
-        <label>
+        <h3>식사 기회 :</h3>
+      </div>
+
+        <div className='container'>
           <input
             type="radio"
+            id='alone'
             value="혼밥"
             checked={occasion === '혼밥'}
             onChange={handleOccasionChange}
           />
-          혼밥
-        </label>
-        <label>
+          <label htmlFor='alone'>혼밥</label>
+       
+        
           <input
             type="radio"
+            id='friend'
             value="친구"
             checked={occasion === '친구'}
             onChange={handleOccasionChange}
           />
-          친구
-        </label>
-        <label>
+          <label htmlFor='friend'>친구</label>
+        
           <input
             type="radio"
+            id='couple'
             value="연인"
             checked={occasion === '연인'}
             onChange={handleOccasionChange}
           />
-          연인
-        </label>
-        <label>
+          <label htmlFor='couple'>커플</label>
+        
           <input
             type="radio"
+            id='family'
             value="가족"
             checked={occasion === '가족'}
             onChange={handleOccasionChange}
           />
-          가족
-        </label>
-        <label>
+          <label htmlFor='family'>가족</label>
+        
           <input
             type="radio"
+            id='group'
             value="모임"
             checked={occasion === '모임'}
             onChange={handleOccasionChange}
           />
-          모임
-        </label>
+          <label htmlFor='group'>모임</label>
+        
       </div>
+
       <div>
-            <button onClick={handleRecommendation}>메뉴 추천</button>
+            <button onClick={handleRecommendation} className='recommend-btn'>메뉴 추천</button>
             <h3>추천 메뉴:</h3>
             <p>{menu}</p>
       </div>
     </div>
+  </div>
   );
 }
