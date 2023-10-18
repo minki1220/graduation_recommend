@@ -6,7 +6,7 @@ export default function SignupBtn(){
     return(
         <Link href="/SignUp"><button style={{
         border:'2px solid black',
-        backgroundColor:'silver',
+        backgroundColor:'#25bcff',
         marginRight:'5px',
         fontSize:'16px',
         cursor:'pointer',

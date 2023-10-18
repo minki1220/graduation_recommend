@@ -46,7 +46,7 @@ export default function KakaoMap() {
             let infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
             let searchOptions = {
               location: new kakao.maps.LatLng(latitude, longitude),
-              radius: 10000,
+              // radius: 1000,
             };
             
             
@@ -90,26 +90,22 @@ export default function KakaoMap() {
 
   return (
     <div>
-      <div id="map" style={{ width: '55%',
-                             height: '400px',
-                             marginTop : '50px',
-                             marginLeft : '50px'}}></div>
-      <div style={{width : '30%' , 
-                   display : 'flex', 
-                   float : 'right',
-                   marginTop : '-400px',
-                   marginRight : '100px'}}>
+      <div id="map"></div>
+      
+      <div className="list-container">
         <h2>주변 음식점 목록</h2>
         <ul>
+        
           {restaurants.map((restaurant, index) => (
-            <li key={index}>
-              <button onClick={() => handleRestaurantClick(restaurant)}>
-                {restaurant.place_name}
+            <li onClick={() => handleRestaurantClick(restaurant)} key={index} >
+              <button className="list-btn" onClick={() => handleRestaurantClick(restaurant)}>
+                <span>{index + 1}</span>{restaurant.place_name}
               </button>
             </li>
           ))}
         </ul>
       </div>
+
       {selectedRestaurant && (
         <div style={{marginTop : '80px',
                      marginLeft : '50px',

@@ -1,8 +1,10 @@
 'use client'
 
+import '../../css/recommend.css';
 import { useState } from 'react';
 
 export default function MenuSelector() {
+  const [time, setTime] = useState('');
   const [category, setCategory] = useState('');
   const [cuisine, setCuisine] = useState('');
   const [occasion, setOccasion] = useState('');
@@ -12,6 +14,7 @@ export default function MenuSelector() {
     
     try {
       const data = {
+        time : time,
         category : category,
         cuisine : cuisine,
         occasion : occasion,
@@ -36,6 +39,9 @@ export default function MenuSelector() {
       console.error('Fetch error:', error);
     }
   }
+  const handleTimeChange = (event) => {
+    setTime(event.target.value);
+  };
 
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
@@ -54,8 +60,45 @@ export default function MenuSelector() {
   }
 
   return (
-    <div>
+    <div className='bg'>
     <div className='ml-100'>
+    <div>
+      <h3>시간대 :</h3>
+    </div>
+    <div className='container'>
+          <input
+            type="radio"
+            id='morning'
+            value="아침"
+            name='time'
+            checked={time === '아침'}
+            onChange={handleTimeChange}
+          />
+          <label htmlFor='morning'>아침</label>
+        
+       
+          <input
+            type="radio"
+            id='lunch'
+            value="점심"
+            name='time'
+            checked={time === '점심'}
+            onChange={handleTimeChange}
+          />
+          <label htmlFor='lunch'>점심</label>
+      
+       
+          <input
+            type="radio"
+            id='evening'
+            value="저녁"
+            name='time'
+            checked={time === '저녁'}
+            onChange={handleTimeChange}
+          />
+          <label htmlFor='evening'>저녁</label>
+          
+        </div>
       <div>
         
         <h3>카테고리 :</h3>
@@ -205,13 +248,15 @@ export default function MenuSelector() {
           <label htmlFor='group'>모임</label>
         
       </div>
+      <br></br>
+      <button onClick={handleRecommendation} className='recommend-btn'>메뉴 추천</button>
+      </div>
 
-      <div>
-            <button onClick={handleRecommendation} className='recommend-btn'>메뉴 추천</button>
+      <div className='recommendBtn-box'>
+            
             <h3>추천 메뉴:</h3>
             <p>{menu}</p>
       </div>
-    </div>
   </div>
   );
 }

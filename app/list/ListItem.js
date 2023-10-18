@@ -11,7 +11,7 @@ export default function ListItem({result}) {
           justifyContent: 'flex-end'
       }}>
       <Link href={'/write'}>
-      <button style={{
+      <button className="write-btn"style={{
            marginTop : '10px',
            marginRight : '30px',
            backgroundColor : '#eee',

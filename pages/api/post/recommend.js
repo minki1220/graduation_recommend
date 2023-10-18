@@ -3,14 +3,15 @@ import { connectDB } from "@/util/database";
 export default async function handler(req,res){
     // console.log(req.body)
     if(req.method == 'POST'){
+        const time1 = req.body.time
         const category1 = req.body.category
         const cuisine1 = req.body.cuisine
         const occasion1 = req.body.occasion
 
-        const db = (await connectDB).db('forum');
-        
+        const db = (await connectDB).db('store');
         let result = await db.collection('choose').findOne(
-           {category : category1 ,
+           {time : time1,
+            category : category1 ,
              cuisine : cuisine1 , 
              occasion : occasion1})
         

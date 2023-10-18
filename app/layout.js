@@ -5,6 +5,7 @@ import LoginBtn from '@/Button/loginBtn'
 import SignupBtn from '@/Button/signupBtn'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
+import Refresh from '@/components/useRouter/page'
 
 export const metadata = {
   title: 'Create Next App',
@@ -22,14 +23,15 @@ export default async function RootLayout({ children }) {
       <div className='menu'>
       <Link href="/">홈</Link>
       <Link href="/foodRecommend">음식 추천</Link>
-      <Link href="/map">주변 맛집</Link>
+      {/* <Link href="/map">주변 맛집</Link> */}
+      <Refresh/>
       <Link href="/list">게시판</Link>
       </div>
       <div className='loginSignup-Btn'>
       { 
       session ? (
         <span style={{fontWeight : 'bold'}}>
-          <Link href="/mypage"><span style={
+          <Link href="/mypage/id"><span style={
             {fontSize : '16px',
              marginRight : '10px'}}>마이페이지</span></Link>
           

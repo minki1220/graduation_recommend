@@ -29,6 +29,7 @@
 .p-20 {
   padding: 20px;
 }
+
 input {
   box-sizing: border-box;
   padding: 10px;
@@ -40,4 +41,4 @@ button {
   background: lightgray;
   border: none;
   border-radius: 5px;
-} 
+}

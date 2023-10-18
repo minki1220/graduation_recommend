@@ -83,7 +83,7 @@ export default function Tags() {
         ))}
       </form>
       {/* 제출 버튼을 추가 */}
-      <form onSubmit={handleSubmit} onClick={()=>{router.push('/')}} method="POST">
+      <form onSubmit={handleSubmit} onClick={()=>{router.prefetch('/')}} method="POST">
         <input type="submit" value="제출" className="signup-btn" style={{ display: 'block' }}/>
       </form>
     </div>
