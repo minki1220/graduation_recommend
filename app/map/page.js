@@ -1,3 +1,5 @@
+import KakaoMap from "@/components/kakaomaps/page";
+
 export default async function Mypage() {
  
     return (
@@ -5,10 +7,7 @@ export default async function Mypage() {
                   width : '100%',
                   height : '85vh',
                   padding : '1px'}}>
-        <h4>
-          주변 맛집
-        </h4>
-      
+        <KakaoMap/>
       </div>
     )
   }

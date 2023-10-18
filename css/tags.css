@@ -1,0 +1,67 @@
+
+.inner-container {
+    max-width: 150px;
+    font-size: 20px;
+    padding: 15px 30px;
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    margin: 5px;
+    text-align: center;
+    transition: background-color 0.5s, color 0.5s;
+    display: inline-block;
+    
+   }
+   .inner-container:focus{
+     outline: none;
+   }
+   .inner-container:hover {
+     background-color: black;
+     color: white;
+   }
+   .name-span{
+     user-select: none;
+   }
+   
+   .checked {
+     background-color: black;
+     color: white;
+   }
+   
+   .signup-btn{
+    width: 70%;
+    font-size: 20px;
+    padding: 15px 30px;
+    background-color: black;
+    color: white;
+    border: 3px solid black;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    margin: 5px;
+    text-align: center;
+    transition: background-color 0.5s, color 0.5s;
+    margin-left: auto;
+    margin-right: auto;
+   }
+   
+   .signup-btn:hover{
+     background-color: white;
+     color: black;
+     text-decoration: none;
+   }
+   
+   .tag-container{
+     width: 50%;
+     height: 80%;
+     text-align: center;
+     margin-left: auto;
+     margin-right: auto;
+     
+   }
+   
