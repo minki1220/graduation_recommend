@@ -15,6 +15,6 @@ export default async function handler(req, res) {
       {email : session.user.email},
       {$set : {insertTags}}
     )
-    res.redirect(302, "/");
+    res.redirect(302, "/tagsMap");
   }
 }

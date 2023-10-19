@@ -7,10 +7,11 @@ export default function KakaoMap() {
   const [restaurants, setRestaurants] = useState([]);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  let [Tag, setTag]=useState('')
   let map; // 지도 객체
   let currentLocationMarker; // 현재 위치 마커
 
-  const RESULTS_PER_PAGE = 15; // 페이지당 결과 수
+  const RESULTS_PER_PAGE = 12; // 페이지당 결과 수
   const MAX_PAGES = 3; // 최대 페이지 수
   let allRestaurants = []; // 모든 음식점 목록을 저장할 배열
   let restaurantMarkers = []; // 음식점 마커를 저장할 배열
@@ -30,7 +31,13 @@ export default function KakaoMap() {
       setCurrentPage(currentPage - 1);
     }
   }
-
+  useEffect(()=>{
+    fetch('/api/get/gettags').then(r=>r.json())
+    .then((result)=>{
+        setTag(result)
+    })
+  },[])
+  
   useEffect(() => {
     const mapScript = document.createElement('script');
     mapScript.async = true;
@@ -66,7 +73,7 @@ export default function KakaoMap() {
                 allRestaurants = [...allRestaurants, ...data];
 
                 if (page < MAX_PAGES) {
-                  ps.keywordSearch('음식점', (data, status) => placesSearchCB(data, status, page + 1), {
+                  ps.keywordSearch(Tag, (data, status) => placesSearchCB(data, status, page + 1), {
                     page: page + 1,
                     radius: 2000,
                     location: new kakao.maps.LatLng(latitude, longitude),
@@ -93,7 +100,7 @@ export default function KakaoMap() {
               }
             }
 
-            ps.keywordSearch('음식점', (data, status) => placesSearchCB(data, status, 1), {
+            ps.keywordSearch(Tag, (data, status) => placesSearchCB(data, status, 1), {
               page: 1,
               radius: 2000,
               location: new kakao.maps.LatLng(latitude, longitude),
@@ -120,13 +127,17 @@ export default function KakaoMap() {
       <div className="list-container">
         <h2>주변 음식점 목록</h2>
         <ul>
-          {restaurants.map((restaurant, index) => (
+          {
+          restaurants.length > 0 ?
+          restaurants.map((restaurant, index) => (
             <li onClick={() => handleRestaurantClick(restaurant)} key={index}>
               <button className="list-btn" onClick={() => handleRestaurantClick(restaurant)}>
                 <span>{(currentPage - 1) * RESULTS_PER_PAGE + index + 1}</span>{restaurant.place_name}
               </button>
             </li>
-          ))}
+          ))
+           :'다음 페이지 버튼을 누르세요!'
+          }
         </ul>
         {currentPage > 1 && (
           <button onClick={handlePrevPageClick}>이전 페이지</button>

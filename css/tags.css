@@ -1,67 +1,92 @@
+.bg {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width: 100%;
+  height: 80vh;
+  background: rgb(249, 250, 255);
+  padding: 10px;
+}
+.h3{
+  text-align: center;
+}
 
-.inner-container {
-    max-width: 150px;
-    font-size: 20px;
-    padding: 15px 30px;
-    background-color: white;
-    color: black;
-    border: 3px solid black;
-    border-radius: 30px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-family: sans-serif;
-    margin: 5px;
-    text-align: center;
-    transition: background-color 0.5s, color 0.5s;
-    display: inline-block;
-    
-   }
-   .inner-container:focus{
-     outline: none;
-   }
-   .inner-container:hover {
-     background-color: black;
-     color: white;
-   }
-   .name-span{
-     user-select: none;
-   }
-   
-   .checked {
-     background-color: black;
-     color: white;
-   }
-   
-   .signup-btn{
-    width: 70%;
-    font-size: 20px;
-    padding: 15px 30px;
-    background-color: black;
-    color: white;
-    border: 3px solid black;
-    border-radius: 30px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-family: sans-serif;
-    margin: 5px;
-    text-align: center;
-    transition: background-color 0.5s, color 0.5s;
-    margin-left: auto;
-    margin-right: auto;
-   }
-   
-   .signup-btn:hover{
-     background-color: white;
-     color: black;
-     text-decoration: none;
-   }
-   
-   .tag-container{
-     width: 50%;
-     height: 80%;
-     text-align: center;
-     margin-left: auto;
-     margin-right: auto;
-     
-   }
-   
+.ml-100{
+  width: 75%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 40vh; 
+}
+
+.tag-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5개씩 가로로 나열 */
+  grid-gap: 10px; /* 각 태그 사이의 간격 */
+}
+
+
+input[type="radio"]{
+  display: none;
+}
+
+label {
+  position: relative;
+  color: #4189e0;
+  cursor: pointer;
+  gap: 0.8em;
+  border: 2px solid #4189e0;
+  border-radius: 10px;
+  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  text-align: center;
+  justify-content: center;
+}
+
+label:before {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
+input[type="radio"]:checked + label:before {
+  height: 20px;
+  width: 20px;
+  border : 10px solid #fff;
+  background-color: #4189e0;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #4189e0;
+  color: #fff;
+}
+
+.recommend-btn {
+  width: 20%;
+  position: relative;
+  color: #4189e0;
+  cursor: pointer;
+  gap: 0.8em;
+  border: 2px solid #4189e0;
+  border-radius: 10px;
+  padding: 1em 2em;
+  margin-top: 30px;
+  background-color: rgb(249, 250, 255);
+  
+}
+
+.recommend-btn:hover{
+  background-color: #4189e0;
+  color: #fff;
+}
+
+.recommend-box {
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}

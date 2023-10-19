@@ -3,8 +3,9 @@
 import { signOut } from "next-auth/react"
 
 export function LogOutBtn(){
+  
     return (
-      <button onClick={()=>{ signOut() }} style={{
+      <button onClick={()=>{ signOut()}} style={{
       border:'2px solid black',
       backgroundColor:'#fff',
       marginRight:'5px',

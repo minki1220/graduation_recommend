@@ -5,7 +5,10 @@ import LoginBtn from '@/Button/loginBtn'
 import SignupBtn from '@/Button/signupBtn'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { getServerSession } from 'next-auth'
-import Refresh from '@/components/useRouter/page'
+import { connectDB } from '@/util/database'
+import MapLink from '@/components/useRouter/map'
+import TagMapLink from '@/components/useRouter/taglink'
+import FoodRecommendLink from '@/components/useRouter/recommendlink'
 
 export const metadata = {
   title: 'Create Next App',
@@ -13,41 +16,43 @@ export const metadata = {
 }
 
 export default async function RootLayout({ children }) {
-  let session = await getServerSession(authOptions)
+  let session = await getServerSession(authOptions);
+  let db = (await connectDB).db('store');
+  let result = await db.collection('user_cred').find().toArray();
+
   return (
     <html lang="en">
       <body>
-      <div className="navbar">
-      {/* 여기에 아이콘 추가하기 */}
-      <span className="logo">오늘 뭐 먹지?</span>
-      <div className='menu'>
-      <Link href="/">홈</Link>
-      <Link href="/foodRecommend">음식 추천</Link>
-      {/* <Link href="/map">주변 맛집</Link> */}
-      <Refresh/>
-      <Link href="/list">게시판</Link>
-      </div>
-      <div className='loginSignup-Btn'>
-      { 
-      session ? (
-        <span style={{fontWeight : 'bold'}}>
-          <Link href="/mypage/id"><span style={
-            {fontSize : '16px',
-             marginRight : '10px'}}>마이페이지</span></Link>
-          
-          {session.user.name}님 환영합니다. <LogOutBtn />
-        </span>
-      ) : (
-        <span>
-          <LoginBtn />
-          <SignupBtn />
-        </span>
-      )
-      }
-      </div>  
-      </div>
+        <div className="navbar">
+          {/* 여기에 아이콘 추가하기 */}
+          <span className="logo">오늘 뭐 먹지?</span>
+          <div className='menu'>
+            <Link href="/">홈</Link>
+            <FoodRecommendLink/>
+            <MapLink/>
+            {session && <TagMapLink />} {/* TagMapLink 컴포넌트는 로그인 상태에서만 렌더링 */}
+            <Link href="/list">게시판</Link>
+          </div>
+          <div className='loginSignup-Btn'>
+            { 
+              session ? (
+                <span style={{ fontWeight: 'bold' }}>
+                  <Link href="/mypage">
+                    <span style={{ fontSize: '16px', marginRight: '10px' }}>마이페이지</span>
+                  </Link>
+                  {session.user.name}님 환영합니다. <LogOutBtn />
+                </span>
+              ) : (
+                <span>
+                  <LoginBtn />
+                  <SignupBtn />
+                </span>
+              )
+            }
+          </div>  
+        </div>
         {children}
-        </body>
+      </body>
     </html>
   )
 }
