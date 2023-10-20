@@ -89,7 +89,7 @@
   /* 추천 메뉴 박스 스타일 */
   .recommendBtn-box {
     width: 50%;
-    margin-top: -500px;
+    margin-top: -465px;
     display: flex;
     flex-direction: column;
     align-items: center;

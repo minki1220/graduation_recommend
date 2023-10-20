@@ -128,12 +128,14 @@ export default function KakaoMap() {
             </li>
           ))}
         </ul>
+        <div className='page-btn'>
         {currentPage > 1 && (
           <button onClick={handlePrevPageClick}>이전 페이지</button>
         )}
         {currentPage < MAX_PAGES && (
           <button onClick={handleNextPageClick}>다음 페이지</button>
         )}
+      </div>
       </div>
 
       {selectedRestaurant && (

@@ -36,7 +36,7 @@ export default async function handler(req, res) {
 
    
     db = (await connectDB).db("store");
-    await db.collection("user_cred").insertOne(req.body);
+    await db.collection("users").insertOne(req.body);
     res.redirect(302, "/api/auth/signin");
   }
 }

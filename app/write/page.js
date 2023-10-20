@@ -1,5 +1,5 @@
 import { getServerSession } from 'next-auth'
-import '../../css/write.css'
+import '@/../css/write.css'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { connectDB } from '@/util/database'
 
@@ -13,7 +13,7 @@ export default async function Write() {
     ) 
    }else {
     return(
-      <div className="p-20">
+      <div className="bg">
       <form action="/api/post/new" method="POST">
         <input name="title" placeholder="글제목"/>
         <input name="content" placeholder="글내용"/>

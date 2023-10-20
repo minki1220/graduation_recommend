@@ -31,7 +31,7 @@ export const authOptions = {
       //아이디,비번 맞으면 return 결과, 틀리면 return null 해야함
       async authorize(credentials) {
         let db = (await connectDB).db('store');
-        let user = await db.collection('user_cred').findOne({email : credentials.email})
+        let user = await db.collection('users').findOne({email : credentials.email})
         if (!user) {
           console.log('해당 이메일은 없음');
           return null

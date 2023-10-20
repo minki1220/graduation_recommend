@@ -11,7 +11,7 @@ export default async function handler(req, res) {
       tags : req.body.tags
     }
     const db = (await connectDB).db('store')
-    let result = await db.collection('user_cred').updateOne(
+    let result = await db.collection('users').updateOne(
       {email : session.user.email},
       {$set : {insertTags}}
     )

@@ -11,7 +11,7 @@ export default function KakaoMap() {
   let map; // 지도 객체
   let currentLocationMarker; // 현재 위치 마커
 
-  const RESULTS_PER_PAGE = 12; // 페이지당 결과 수
+  const RESULTS_PER_PAGE = 15; // 페이지당 결과 수
   const MAX_PAGES = 3; // 최대 페이지 수
   let allRestaurants = []; // 모든 음식점 목록을 저장할 배열
   let restaurantMarkers = []; // 음식점 마커를 저장할 배열
@@ -104,7 +104,7 @@ export default function KakaoMap() {
               page: 1,
               radius: 2000,
               location: new kakao.maps.LatLng(latitude, longitude),
-              category_group_code: 'FD6'
+              
             });
           });
         } else {
@@ -139,6 +139,7 @@ export default function KakaoMap() {
            :'다음 페이지 버튼을 누르세요!'
           }
         </ul>
+        <div className='page-btn'>
         {currentPage > 1 && (
           <button onClick={handlePrevPageClick}>이전 페이지</button>
         )}
@@ -146,6 +147,8 @@ export default function KakaoMap() {
           <button onClick={handleNextPageClick}>다음 페이지</button>
         )}
       </div>
+      </div>
+      
 
       {selectedRestaurant && (
         <div style={{ marginTop: '80px', marginLeft: '50px', marginRight: '200px' }}>

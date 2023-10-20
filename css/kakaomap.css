@@ -39,6 +39,8 @@
     background: #fff;
     padding: 0px;
     margin: 0px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     
 }
 
@@ -94,4 +96,13 @@
 .list-container ul li:hover span {
     background: #fff;
     color: #25bcff;
+}
+
+.page-btn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 20px;
+   margin-top: 20px;
+   
 }
