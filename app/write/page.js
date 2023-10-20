@@ -9,7 +9,16 @@ export default async function Write() {
 
    if(!session || !session.user.email){
     return(
-        <span>로그인 해주세요</span>   
+      <div className='bg'>
+        <span style={{display : 'flex',
+                      justifyContent : 'center',
+                      alignItems : 'center',
+                      marginLeft : 'auto',
+                      marginRight : 'auto',
+                      fontSize : '40px',
+                      fontWeight : 'bold'}}>작성 권한이 없습니다. 로그인 및 회원가입을 해주세요.</span>
+      </div>
+         
     ) 
    }else {
     return(
