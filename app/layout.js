@@ -9,6 +9,7 @@ import { connectDB } from '@/util/database'
 import MapLink from '@/components/useRouter/map'
 import TagMapLink from '@/components/useRouter/taglink'
 import FoodRecommendLink from '@/components/useRouter/recommendlink'
+import MypageLink from '@/components/useRouter/mypagelink'
 
 export const metadata = {
   title: 'Create Next App',
@@ -37,9 +38,7 @@ export default async function RootLayout({ children }) {
             { 
               session ? (
                 <span style={{ fontWeight: 'bold' }}>
-                  <Link href="/mypage">
-                    <span style={{ fontSize: '16px', marginRight: '10px' }}>마이페이지</span>
-                  </Link>
+                  <MypageLink />
                   {session.user.name}님 환영합니다. <LogOutBtn />
                 </span>
               ) : (

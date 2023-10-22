@@ -61,7 +61,7 @@ export default function MenuSelector() {
       const data1 = await response.json();
 
       setMenu(data1.menu);
-      console.log(data1.menu);
+      
     } catch (error) {
       console.error('Fetch error:', error);
     }

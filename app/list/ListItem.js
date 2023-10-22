@@ -55,6 +55,7 @@ export default function ListItem({result}) {
             }}>🗑️</button>
             
             <p>1월 1일</p>
+            
           </div>
           </div>
        ) }

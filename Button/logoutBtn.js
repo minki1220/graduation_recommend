@@ -1,14 +1,11 @@
 'use client'
 
-import { useRouter } from 'next/navigation';
 import { signOut } from 'next-auth/react';
 
 export function LogOutBtn() {
-  const router = useRouter();
-
   const handleLogout = async () => {
     await signOut();
-    router.push('/');
+    window.location.href = '/'; // "/"로 리디렉션
   };
 
   return (

@@ -9,7 +9,6 @@ export default async function List() {
     let result = await db.collection('post').find().toArray();
 
     return (
-     
         <div className="list-bg">
           <ListItem result={result}/>
         </div>

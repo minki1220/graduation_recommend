@@ -1,24 +1,18 @@
-
 import { connectDB } from "@/util/database.js"
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import MyPage from "@/components/mypage/mypage";
+
 
 export default async function Mypage() {
     let session = await getServerSession(authOptions)
-    console.log(session)
+    
     let db = (await connectDB).db('store')
-    let result = await db.collection('users').findOne({ email : session.user.email});
-    console.log(result.insertTags.tags)
-     
-  return (
-    <div className="bg">
-      <div>
-        <h4>마이페이지임</h4>
-      </div>
-      
-      <span>{session.user.name}</span>
-      <p>{session.user.email}</p>
-    </div>
-  )
-  
+    let result = await db.collection('mypage').findOne({ email: session.user.email });
+    console.log(result)
+    return (
+        <div>
+            <MyPage result={result} session ={session}/> 
+        </div>
+    )
 }

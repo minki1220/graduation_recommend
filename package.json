@@ -22,6 +22,7 @@
     "next-auth": "^4.23.2",
     "react": "^18",
     "react-calendar": "^4.6.0",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-router-dom": "^6.17.0"
   }
 }
