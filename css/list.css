@@ -9,6 +9,7 @@
 }
 
 .list-item {
+  width: 95%;
   background: white;
   border-radius: 10px;
   padding: 20px;
@@ -16,6 +17,7 @@
   box-shadow: rgb(224, 224, 224) 0px 2px 4px 0px;
   opacity: 1;
   transition: all 1s;
+  border: 2px solid #eee;
 }
 .list-item h4 {
   font-size: 20px;
@@ -32,13 +34,17 @@
 
 input {
   box-sizing: border-box;
+  background-color: #fff;
   padding: 10px;
   display: block;
   margin-bottom: 10px;
 }
 button {
-  padding: 10px 15px;
-  background: lightgray;
+  padding: 10px 25px;
+  background: #fff;
   border: none;
   border-radius: 5px;
+}
+.list-btn{
+  float: right;
 }

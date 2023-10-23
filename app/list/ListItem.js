@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function ListItem({result}) {
   return (
-    <div>
+    <div className="list-bg">
       {/* 글 작성 버튼 */}
       <div style={{
           display: 'flex',
@@ -14,9 +14,9 @@ export default function ListItem({result}) {
       <button className="write-btn"style={{
            marginTop : '10px',
            marginRight : '30px',
-           backgroundColor : '#eee',
            cursor : 'pointer',
-           border : '2px solid silver'
+           border : '2px solid #eee',
+           backgroundColor : '#fff'
       }}>
         <span>글 작성하기</span>
       </button>
@@ -27,7 +27,8 @@ export default function ListItem({result}) {
           <div className="list-box">
           <div className="list-item" key={i}>
             <Link href={'/detail/' + result[i]._id}>{result[i].title}</Link>
-            <Link href={'/edit/' + result[i]._id} className="list-btn">✏️</Link>
+            <div className="list-btn">
+            <Link href={'/edit/' + result[i]._id} >✏️</Link>
             <button onClick={(e)=>{
                 fetch('/api/post/delete',
                 {method : 'DELETE' ,
@@ -53,7 +54,7 @@ export default function ListItem({result}) {
                   console.log(error)
                 })
             }}>🗑️</button>
-            
+            </div>
             <p>1월 1일</p>
             
           </div>

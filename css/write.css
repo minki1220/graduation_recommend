@@ -1,4 +1,8 @@
-
+.bg{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 input {
   box-sizing: border-box;
   padding: 10px;
@@ -7,7 +11,8 @@ input {
 }
 button {
   padding: 10px 15px;
-  background: lightgray;
+  background:silver;
   border: none;
   border-radius: 5px;
+  margin-left: 130px;
 }

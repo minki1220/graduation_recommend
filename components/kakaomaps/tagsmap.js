@@ -141,7 +141,7 @@ export default function KakaoMap() {
       </div>
 
       {selectedRestaurant && (
-        <div style={{ marginTop: '80px', marginLeft: '50px', width: '30%' }}>
+        <div style={{ marginTop: '40px', marginLeft: '50px', width: '30%' }}>
           <h3>선택한 음식점</h3>
           <p>업체명 : {selectedRestaurant.place_name}</p>
           <p>지번 주소 : {selectedRestaurant.address_name}</p>

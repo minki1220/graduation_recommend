@@ -34,7 +34,7 @@ export default async function RootLayout({ children }) {
             {session && <TagMapLink />} {/* TagMapLink 컴포넌트는 로그인 상태에서만 렌더링 */}
             <Link href="/list">게시판</Link>
           </div>
-          <div className='loginSignup-Btn'>
+          <div>
             { 
               session ? (
                 <span style={{ fontWeight: 'bold' }}>

@@ -10,8 +10,8 @@ export default function KakaoMap() {
   let map; // 지도 객체
   let currentLocationMarker; // 현재 위치 마커
 
-  const RESULTS_PER_PAGE = 15; // 페이지당 결과 수
-  const MAX_PAGES = 3; // 최대 페이지 수
+  const RESULTS_PER_PAGE = 10; // 페이지당 결과 수
+  const MAX_PAGES = 4; // 최대 페이지 수
   let allRestaurants = []; // 모든 음식점 목록을 저장할 배열
   let restaurantMarkers = []; // 음식점 마커를 저장할 배열
 
@@ -139,7 +139,7 @@ export default function KakaoMap() {
       </div>
 
       {selectedRestaurant && (
-        <div style={{ marginTop: '80px', marginLeft: '50px', marginRight: '200px' }}>
+        <div style={{ marginTop: '40px', marginLeft: '50px', marginRight: '200px' }}>
           <h3>선택한 음식점</h3>
           <p>업체명 : {selectedRestaurant.place_name}</p>
           <p>지번 주소 : {selectedRestaurant.address_name}</p>

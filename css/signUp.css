@@ -1,8 +1,11 @@
 .container_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #eee;
     margin-top: 0;
     width: 100%;
-    height: 82vh;
+    height: 100vh;
     padding: 1px;
 }
   
@@ -52,7 +55,7 @@
       text-align: center;
       margin-left: auto;
       margin-right: auto;
-      margin-top: 115px;
+      
 }
     
 .sign_in_container{
