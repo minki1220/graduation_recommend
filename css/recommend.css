@@ -3,9 +3,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 80vh;
-    background: rgb(249, 250, 255);
     padding: 10px;
   }
   
@@ -78,7 +75,7 @@
     border-radius: 10px;
     padding: 1em 2em;
     margin-top: 30px;
-    background-color: rgb(249, 250, 255);
+    background: none;
   }
   
   .recommend-btn:hover {
@@ -94,8 +91,26 @@
     flex-direction: column;
     align-items: center;
   }
-  
-  .recommendBtn-box h3 {
-    margin-bottom: 10px;
+
+  .dark-mode h3{
+    color: white;
   }
-  
+  .dark-mode label{
+    color: white;
+    border: 2px solid white;
+  }
+  .dark-mode .recommend-btn{
+    color: white;
+    border: 2px solid white;
+  }
+ .dark-mode input[type="radio"]:checked + label{
+  background: #eee;
+  color: black;
+ }
+ .dark-mode .recommend-btn:hover{
+  background: #eee;
+  color: black;
+ }
+.dark-mode .recommendBtn-box {
+  color: white;
+}

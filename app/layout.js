@@ -10,6 +10,9 @@ import MapLink from '@/components/useRouter/map'
 import TagMapLink from '@/components/useRouter/taglink'
 import FoodRecommendLink from '@/components/useRouter/recommendlink'
 import MypageLink from '@/components/useRouter/mypagelink'
+import DarkMode from './DarkMode'
+import { cookies } from 'next/headers'
+import ListLink from '@/components/useRouter/listlink'
 
 export const metadata = {
   title: 'Create Next App',
@@ -20,10 +23,15 @@ export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions);
   let db = (await connectDB).db('store');
   let result = await db.collection('user_cred').find().toArray();
+  let res = cookies().get('mode')
 
   return (
     <html lang="en">
-      <body>
+      <body className={
+        res != undefined && res.value == 'dark'
+          ? 'dark-mode'
+          : ''
+      }>
         <div className="navbar">
           {/* 여기에 아이콘 추가하기 */}
           <span className="logo">오늘 뭐 먹지?</span>
@@ -32,7 +40,7 @@ export default async function RootLayout({ children }) {
             <FoodRecommendLink/>
             <MapLink/>
             {session && <TagMapLink />} {/* TagMapLink 컴포넌트는 로그인 상태에서만 렌더링 */}
-            <Link href="/list">게시판</Link>
+            <ListLink/>
           </div>
           <div>
             { 
@@ -48,6 +56,7 @@ export default async function RootLayout({ children }) {
                 </span>
               )
             }
+            <DarkMode/>
           </div>  
         </div>
         {children}

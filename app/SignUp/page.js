@@ -2,6 +2,7 @@ import '../../css/signUp.css';
 
 export default function SignUpPage() {
     return (
+      <div className='bg'>
       <div className="container_box">
       <div className="signup_container">
         <h1 className="headerStyle">Create An Account!</h1>
@@ -14,6 +15,7 @@ export default function SignUpPage() {
             <button type="submit">SIGN UP</button>
           </form>
         </div>
+      </div>
       </div>
       </div>
       

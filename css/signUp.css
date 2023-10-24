@@ -1,12 +1,13 @@
+.bg{
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
 .container_box{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #eee;
     margin-top: 0;
-    width: 100%;
-    height: 80vh;
-    padding: 1px;
 }
   
 .headerStyle{
@@ -29,11 +30,10 @@
       outline: none;
     }
 .sign_in_container form{
-      background-color: #FFFFFF;
       display: flex;
       align-items: center;
       flex-direction: column;
-      margin-top: 100px;
+      margin-top: 60px;
 }
 .sign_in_container form input {
       background-color: #eee;

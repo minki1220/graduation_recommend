@@ -3,6 +3,7 @@ import { ObjectId } from "mongodb"
 import PostLike from './PostLike'
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/pages/api/auth/[...nextauth]"
+import Comment from "./Comment"
 
 
 export default async function Detail(props) {
@@ -42,7 +43,7 @@ export default async function Detail(props) {
                     session={session}
                     elementExis={elementExis}
                 />
-                {/* <Comment _id={result._id} /> */}
+                <Comment _id={result._id.toString()} />
               </div>
             </div>
         );

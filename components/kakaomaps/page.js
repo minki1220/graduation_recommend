@@ -115,7 +115,8 @@ export default function KakaoMap() {
   }, [currentPage]);
 
   return (
-    <div className='map-container'>
+    // <div>
+    <div className='bg' >
       <div id="map"></div>
       <div className="list-container">
         <h2>주변 음식점 목록</h2>
@@ -139,7 +140,7 @@ export default function KakaoMap() {
       </div>
 
       {selectedRestaurant && (
-        <div style={{ marginTop: '40px', marginLeft: '50px', marginRight: '200px' }}>
+        <div style={{width : '30%'}}>
           <h3>선택한 음식점</h3>
           <p>업체명 : {selectedRestaurant.place_name}</p>
           <p>지번 주소 : {selectedRestaurant.address_name}</p>
@@ -151,5 +152,6 @@ export default function KakaoMap() {
         </div>
       )}
     </div>
+    // </div>
   );
 }

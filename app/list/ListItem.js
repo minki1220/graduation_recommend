@@ -4,29 +4,21 @@ import Link from "next/link"
 
 export default function ListItem({result}) {
   return (
-    <div className="list-bg">
+    <div className="bg">
       {/* 글 작성 버튼 */}
-      <div style={{
-          display: 'flex',
-          justifyContent: 'flex-end'
-      }}>
+      <div className="write-btn">
       <Link href={'/write'}>
-      <button className="write-btn"style={{
-           marginTop : '10px',
-           marginRight : '30px',
-           cursor : 'pointer',
-           border : '2px solid #eee',
-           backgroundColor : '#fff'
-      }}>
+      <button>
         <span>글 작성하기</span>
       </button>
       </Link>
       </div>
+      
 
       { result.map((a,i)=>
           <div className="list-box">
           <div className="list-item" key={i}>
-            <Link href={'/detail/' + result[i]._id}>{result[i].title}</Link>
+            <Link href={'/detail/' + result[i]._id}>{result[i].title}<p>1월 1일</p></Link>
             <div className="list-btn">
             <Link href={'/edit/' + result[i]._id} >✏️</Link>
             <button onClick={(e)=>{
@@ -55,7 +47,7 @@ export default function ListItem({result}) {
                 })
             }}>🗑️</button>
             </div>
-            <p>1월 1일</p>
+            
             
           </div>
           </div>

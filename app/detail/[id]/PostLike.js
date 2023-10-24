@@ -6,10 +6,10 @@ export default function PostLike(props){
     let [auto, setAuto] = useState(props.elementExis)
     useEffect(()=>{
         if(auto === null || auto === false){
-            console.log('좋아요 안눌러져 있을 때')
+            
             setHeart('🤍')
         } else if (auto === true){
-            console.log('좋아요 눌러져 있을 때')
+            
             setHeart('❤️')
         }
     },[])
@@ -26,7 +26,7 @@ export default function PostLike(props){
                 <button onClick={(e)=>{
                     {
                         if(auto === null || auto === false){ // 좋아요 안눌러저 있을 때
-                            console.log('좋아요 안눌러져 있을 때')
+                            
                             fetch('/api/like/likePlus',{
                                 method : "POST",
                                 body : JSON.stringify({likeCount : likeCount, _id : props._id, name : props.name})
@@ -52,7 +52,7 @@ export default function PostLike(props){
                                 console.log(error)
                             })
                         } else if(auto === true){ // 좋아요 눌러저 있을 떄
-                            console.log('좋아요 눌러져 있을 때')
+                            
                             fetch('/api/like/likeMinus', {
                                 method : "POST",
                                 body : JSON.stringify({likeCount : likeCount, _id : props._id, name : props.name})
@@ -86,8 +86,6 @@ export default function PostLike(props){
                 {trg === false ? null : <ListOne likeUserList={likeUserList}/>}
                 {/* {err === false ? null : <ErrPopup err={err} />  } */}
             </div>
-            <button onClick={()=>{
-            }}>근황버튼</button>
         </div>
     )
 }
