@@ -1,14 +1,15 @@
-import { connectDB } from "@/util/database"
+import MySwiper from "@/components/sliderimg/page";
 
-export default async function Home() {
-  // const db = (await connectDB).db('store')
-  // let result = await db.collection('post').find().toArray()
-  // console.log(result)
+
+
+export default function Home() {
+
   return (
     <div className="bg">
-      <h4>
-        home
-      </h4>
+      <div className="home-container">
+      <h4 className="home-title">home</h4>
+      <div className="Swiper-container"><MySwiper/></div>
+      </div>
     </div>
-  )
+  );
 }
