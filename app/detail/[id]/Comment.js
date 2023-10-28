@@ -24,7 +24,9 @@ export default function Comment(props) {
 
     return (
         <div>
+            <div style={{width : '100%'}}>
             <textarea
+                style={{width: '100%'}}
                 value={comment} // 입력 필드를 현재 comment 상태와 연결
                 onChange={(e) => {
                     Setcomment(e.target.value)
@@ -47,16 +49,16 @@ export default function Comment(props) {
                         })
                 }}
             >
-                댓글 입력
+                댓글 저장
             </button>
-            
-            <div>
+            </div>
+         
                 {commentList.map((a, i) => 
                     
                         <div key={i}>
                             <span>{a.author_name}</span>
                             <span>{a.content}</span>
-                            <div>
+                            
                             <button onClick={(e)=>{
                 fetch('/api/comment/delete',
                 {method : 'DELETE' ,
@@ -68,10 +70,10 @@ export default function Comment(props) {
                             fetchComments(); // 코멘트를 저장한 후에 코멘트 리스트를 다시 가져옵니다.
                         })
             }}>🗑️</button>
-                            </div>
+                            
                         </div>
                 )}
-            </div>
+            
         </div>
     )
 }

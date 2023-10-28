@@ -1,7 +1,9 @@
 .bg{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 input {
   box-sizing: border-box;
@@ -14,5 +16,10 @@ button {
   background:silver;
   border: none;
   border-radius: 5px;
-  margin-left: 130px;
+  margin: 0;
+  background: rgb(249, 250, 255);
+}
+
+.write{
+  flex-direction: column;
 }

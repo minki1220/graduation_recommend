@@ -109,6 +109,10 @@
    padding: 10px 20px;
 }
 
+.page-btn button {
+    border: none;
+}
+
 .dark-mode p,a {
     color: white;
 }

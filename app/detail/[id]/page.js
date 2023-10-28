@@ -4,6 +4,7 @@ import PostLike from './PostLike'
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/pages/api/auth/[...nextauth]"
 import Comment from "./Comment"
+import "@/../css/write.css"
 
 
 export default async function Detail(props) {
@@ -12,10 +13,10 @@ export default async function Detail(props) {
     const session = await getServerSession(authOptions);
     let elementExis = null;
     
-    if (result === null) {
+    if (session === null) {
         // result가 null인 경우에 대한 처리 (예: 에러 메시지 표시 또는 리다이렉트)
         // 예를 들면, 에러 메시지 표시 후 리다이렉트할 때:
-        // return <div>포스트를 찾을 수 없습니다.</div>;
+        return <div>회원가입 및 로그인을 해주세요.</div>;
     } else {
         if (session) {
             if (result.likeUser && result.likeUser.includes(session.user.email)) {
@@ -30,10 +31,14 @@ export default async function Detail(props) {
         return (
             <div className="bg">
               <div className="write">
-                <h4>상세페이지</h4>
+                <h2>상세페이지</h2>
+                <span>작성자 - {result.author}</span>
                 <h4>{result.title}</h4>
                 <p>{result.content}</p>
-                <span>작성자 {result.name} - {result.author}</span>
+                </div>
+                <div>
+                
+                </div>
                 <PostLike
                     result={result}
                     name={result.name}
@@ -44,7 +49,7 @@ export default async function Detail(props) {
                     elementExis={elementExis}
                 />
                 <Comment _id={result._id.toString()} />
-              </div>
+              
             </div>
         );
     }
