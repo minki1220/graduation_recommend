@@ -41,9 +41,10 @@ export default function MyPage({ result, session }) {
     <div className="bg">
       <div>
       {/* 유저 이미지 넣을 곳 */}
-      <span>{session.user.name}</span>
+      <p>닉네임</p><input defaultValue={session.user.name}/>
       <br></br>
-      <span>{session.user.email}</span>
+      <p>이메일</p><input defaultValue={session.user.email}/>
+      <input type="submit" value="SAVE"/>
       </div>
 
       {/* 즐겨찾기 목록 */}

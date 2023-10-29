@@ -113,12 +113,17 @@
     border: none;
 }
 
-.dark-mode p,a {
+.dark-mode p {
     color: white;
 }
 
 .dark-mode h3 {
     color: white;
 }
-
+a {
+    color: black;
+}
+.dark-mode a{
+    color: white;
+}
 
