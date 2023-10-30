@@ -1,9 +1,9 @@
 .bg{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  justify-content: space-between;
+}
+.bg div{
+  margin-top: 20px;
 }
 input {
   box-sizing: border-box;
@@ -22,4 +22,9 @@ button {
 
 .write{
   flex-direction: column;
+  display: flex;
+  justify-content: flex-end;
+}
+.comment-container{
+ 
 }

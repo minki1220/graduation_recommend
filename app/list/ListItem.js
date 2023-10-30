@@ -1,8 +1,10 @@
 'use client'
 
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 export default function ListItem({result}) {
+  let router = useRouter()
   return (
     <div className="bg">
       {/* 글 작성 버튼 */}
@@ -18,9 +20,11 @@ export default function ListItem({result}) {
       { result.map((a,i)=>
           <div className="list-box">
           <div className="list-item" key={i}>
-            <Link href={'/detail/' + result[i]._id}>{result[i].title}<p>1월 1일</p></Link>
+            {/* <Link href={'/detail/' + result[i]._id}>{result[i].title}<p>1월 1일</p></Link> */}
+            <a href={'/detail/' + result[i]._id} onClick={()=>{router.prefetch()}}>{result[i].title}<p>1월 1일</p></a>
             <div className="list-btn">
-            <Link href={'/edit/' + result[i]._id} >✏️</Link>
+            {/* <Link href={'/edit/' + result[i]._id} >✏️</Link> */}
+            <a href={'/edit/' + result[i]._id} onClick={()=>{router.prefetch()}}>✏️</a>
             <button onClick={(e)=>{
                 fetch('/api/post/delete',
                 {method : 'DELETE' ,

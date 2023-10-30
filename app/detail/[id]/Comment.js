@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from "react"
 
+
 export default function Comment(props) {
     let [comment, Setcomment] = useState('')
     let [commentList, SetCommentList] = useState([])
+   
 
     const fetchComments = () => {
         fetch('/api/comment/list?id=' + props._id)
@@ -24,15 +26,15 @@ export default function Comment(props) {
 
     return (
         <div>
-            <div style={{width : '100%'}}>
             <textarea
-                style={{width: '100%'}}
+                style={{width: '60%'}}
                 value={comment} // 입력 필드를 현재 comment 상태와 연결
                 onChange={(e) => {
                     Setcomment(e.target.value)
                 }}
             />
             <button
+                style={{border : '1px solid black',marginBottom:'10px'}}
                 onClick={() => {
                     fetch("/api/comment/new", {
                         method: "POST",
@@ -49,15 +51,14 @@ export default function Comment(props) {
                         })
                 }}
             >
-                댓글 저장
+                저장
             </button>
-            </div>
-         
+           
                 {commentList.map((a, i) => 
                     
                         <div key={i}>
-                            <span>{a.author_name}</span>
-                            <span>{a.content}</span>
+                            <span>{a.author_name} - {a.content}</span>
+                            
                             
                             <button onClick={(e)=>{
                 fetch('/api/comment/delete',

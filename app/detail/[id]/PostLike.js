@@ -20,8 +20,6 @@ export default function PostLike(props){
     let res = null
     return(
         <div>
-            <div style={{position : 'absolute', marginLeft : '450px',marginTop : '-15%',width : '200px', height : '100%'}}>
-                
                 <button onClick={(e)=>{
                     {
                         if(auto === null || auto === false){ // 좋아요 안눌러저 있을 때
@@ -86,7 +84,7 @@ export default function PostLike(props){
                 {trg === false ? null : <ListOne likeUserList={likeUserList}/>}
                 {/* {err === false ? null : <ErrPopup err={err} />  } */}
             </div>
-        </div>
+       
     )
 }
 function ListOne(props) {

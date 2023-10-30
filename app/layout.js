@@ -13,6 +13,7 @@ import MypageLink from '@/components/useRouter/mypagelink'
 import DarkMode from './DarkMode'
 import { cookies } from 'next/headers'
 import ListLink from '@/components/useRouter/listlink'
+import HomeLink from '@/components/useRouter/homelink'
 
 export const metadata = {
   title: 'Create Next App',
@@ -36,7 +37,7 @@ export default async function RootLayout({ children }) {
           {/* 여기에 아이콘 추가하기 */}
           <span className="logo">오늘 뭐 먹지?</span>
           <div className='menu'>
-            <Link href="/">홈</Link>
+            <HomeLink/>
             <FoodRecommendLink/>
             <MapLink/>
             {session && <TagMapLink />} {/* TagMapLink 컴포넌트는 로그인 상태에서만 렌더링 */}

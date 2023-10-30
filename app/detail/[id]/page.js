@@ -30,16 +30,9 @@ export default async function Detail(props) {
         
         return (
             <div className="bg">
-              <div className="write">
-                <h2>상세페이지</h2>
-                <span>작성자 - {result.author}</span>
-                <h4>{result.title}</h4>
-                <p>{result.content}</p>
-                </div>
-                <div>
                 
-                </div>
-                <PostLike
+              <div>
+              <PostLike
                     result={result}
                     name={result.name}
                     _id={result._id}
@@ -48,8 +41,16 @@ export default async function Detail(props) {
                     session={session}
                     elementExis={elementExis}
                 />
+                </div>
+                <div>
+                <h1>작성자 - {result.author}</h1>
+                <h3>{result.title}</h3>
+                <p>{result.content}</p>
+                </div>
+                <div className="comment-container">
                 <Comment _id={result._id.toString()} />
-              
+                </div>
+               
             </div>
         );
     }
