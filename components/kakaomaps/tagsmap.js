@@ -11,11 +11,15 @@ export default function KakaoMap() {
   const [Tag, setTag] = useState('');
   let map; // 지도 객체
   let currentLocationMarker; // 현재 위치 마커
+  const [starClicked, setStarClicked] = useState(false); // 별 모양 버튼 클릭 상태
+  const [favoriteRestaurants, setFavoriteRestaurants] = useState([]); // 중복 저장을 방지할 목록
 
   const RESULTS_PER_PAGE = 10; // 페이지당 결과 수
 
   function handleRestaurantClick(restaurant) {
     setSelectedRestaurant(restaurant);
+    // 별 모양 버튼 클릭 상태 설정
+    setStarClicked(restaurant.isFavorite);
   }
 
   function handleNextPageClick() {
@@ -28,7 +32,58 @@ export default function KakaoMap() {
       setCurrentPage(currentPage - 1);
     }
   }
+  function handleFavoriteClick(restaurant) {
+    if (restaurant) {
+      const isAlreadyFavorited = favoriteRestaurants.some(
+        (r) => r.place_name === restaurant.place_name
+      );
 
+      if (isAlreadyFavorited) {
+        console.log('이미 즐겨찾기에 추가된 음식점입니다.');
+      } else {
+        // 업체명과 업체 상세페이지 URL을 가져옵니다.
+        const restaurantName = restaurant.place_name;
+        const restaurantPageUrl = restaurant.place_url;
+
+        // 즐겨찾기 상태를 토글합니다.
+        const updatedRestaurant = { ...restaurant };
+        updatedRestaurant.isFavorite = !restaurant.isFavorite;
+
+        // 업데이트된 음식점을 찾아서 교체합니다.
+        const updatedRestaurants = restaurants.map((r) =>
+          r.place_name === restaurantName ? updatedRestaurant : r
+        );
+        setRestaurants(updatedRestaurants);
+
+        // 즐겨찾기 별 아이콘 클릭 상태를 변경합니다.
+        setStarClicked(!restaurant.isFavorite);
+
+        // 음식점을 중복 저장을 방지도록 목록에 추가합니다.
+        setFavoriteRestaurants([...favoriteRestaurants, restaurant]);
+
+        // HTTP POST 요청을 생성합니다.
+        fetch('/api/post/favorite', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ restaurantName, restaurantPageUrl }),
+        })
+          .then((response) => {
+            if (response.status === 200) {
+              // 즐겨찾기가 성공적으로 추가되었을 때의 처리를 여기에 추가할 수 있습니다.
+              console.log('즐겨찾기가 추가되었습니다.');
+            } else {
+              // 요청이 실패했을 때의 처리를 여기에 추가할 수 있습니다.
+              console.error('요청이 실패했습니다.');
+            }
+          })
+          .catch((error) => {
+            console.error('오류 발생:', error);
+          });
+      }
+    }
+  }
   useEffect(() => {
     fetch('/api/get/gettags')
       .then((r) => r.json())
@@ -124,6 +179,13 @@ export default function KakaoMap() {
                     <span>{(currentPage - 1) * RESULTS_PER_PAGE + index + 1}</span>
                     {restaurant.place_name}
                   </button>
+                  
+                  <button
+                   className={`favorite-btn ${restaurant.isFavorite ? 'checked' : 'empty-star'}`}
+                   onClick={() => handleFavoriteClick(restaurant)}>
+                   ★
+                  </button>
+                 
                 </li>
               ))
           ) : (

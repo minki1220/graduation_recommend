@@ -6,36 +6,36 @@ import { useState } from 'react';
 
 
 export default function MyPage({ result, session }) {
-  // const [favorites, setFavorites] = useState(result.favorites);
+  const [favorites, setFavorites] = useState(result.favorites);
  
-  // const handleDeleteFavorite = (favorite) => {
-  //   fetch('/api/post/favoritedelete', {
-  //     method: 'DELETE',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(favorite),
-  //   })
-  //     .then((r) => {
-  //       if (r.status === 200) {
-  //         return r.json();
-  //       } else {
-  //         throw new Error('삭제 실패');
-  //       }
-  //     })
-  //     .then(() => {
-  //       // 삭제된 요소를 화면에서 제거
-  //       const updatedFavorites = favorites.filter(
-  //         (fav) =>
-  //           fav.restaurantName !== favorite.restaurantName ||
-  //           fav.restaurantPageUrl !== favorite.restaurantPageUrl
-  //       );
-  //       setFavorites(updatedFavorites);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
+  const handleDeleteFavorite = (favorite) => {
+    fetch('/api/post/favoritedelete', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(favorite),
+    })
+      .then((r) => {
+        if (r.status === 200) {
+          return r.json();
+        } else {
+          throw new Error('삭제 실패');
+        }
+      })
+      .then(() => {
+        // 삭제된 요소를 화면에서 제거
+        const updatedFavorites = favorites.filter(
+          (fav) =>
+            fav.restaurantName !== favorite.restaurantName ||
+            fav.restaurantPageUrl !== favorite.restaurantPageUrl
+        );
+        setFavorites(updatedFavorites);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="bg">
@@ -52,7 +52,7 @@ export default function MyPage({ result, session }) {
         <div>
           <h4>즐겨찾기 목록</h4>
         </div>
-        {/* <div className="favorite-ullist">
+        <div className="favorite-ullist">
           {favorites.length > 0 ? (
             favorites.map((favorite, index) => (
               <div className="favorite-list"key={index}>
@@ -66,7 +66,7 @@ export default function MyPage({ result, session }) {
           ) : (
             <p>즐겨찾기 목록이 비어 있습니다.</p>
           )}
-        </div> */}
+        </div>
       </div>
     </div>
   );
