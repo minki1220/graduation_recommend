@@ -34,7 +34,7 @@ export default function Comment(props) {
                 }}
             />
             <button
-                style={{border : '1px solid black',marginBottom:'10px'}}
+                style={{border : '1px solid black',position : 'fixed'}}
                 onClick={() => {
                     fetch("/api/comment/new", {
                         method: "POST",

@@ -41,7 +41,7 @@ export default async function RootLayout({ children }) {
             <FoodRecommendLink/>
             <MapLink/>
             {session && <TagMapLink />} {/* TagMapLink 컴포넌트는 로그인 상태에서만 렌더링 */}
-            <ListLink/>
+            {session && <ListLink/>}
           </div>
           <div>
             { 

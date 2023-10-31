@@ -198,7 +198,7 @@ export default function KakaoMap() {
             <button style={{background : '#03a9f4', color : 'white'}} onClick={handlePrevPageClick}>◀️</button>
           )}
           {currentPage < Math.ceil(restaurants.length / RESULTS_PER_PAGE) && (
-            <button style={{background : '#03a9f4', color : 'white'}} onClick={handleNextPageClick}>▶️</button>
+            <button style={{background : '#03a9f4', color : 'white', fontSize : '16px'}} onClick={handleNextPageClick}>▶️</button>
           )}
         </div>
       </div>
@@ -211,7 +211,7 @@ export default function KakaoMap() {
           <p>도로명 주소 : {selectedRestaurant.road_address_name}</p>
           <p>업체 전화번호 : {selectedRestaurant.phone}</p>
           <a href={selectedRestaurant.place_url} target="_blank">
-            업체 상세페이지 : {selectedRestaurant.place_url}
+            업체 상세페이지 : <span style={{color : '#03a9f4'}}>{selectedRestaurant.place_url}</span>
           </a>
         </div>
       )}

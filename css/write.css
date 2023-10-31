@@ -1,9 +1,10 @@
 .bg{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  padding-top: 150px;
 }
 .bg div{
-  margin-top: 20px;
+  margin-top: 0px;
 }
 input {
   box-sizing: border-box;
@@ -16,7 +17,6 @@ button {
   background:silver;
   border: none;
   border-radius: 5px;
-  margin: 0;
   background: rgb(249, 250, 255);
 }
 

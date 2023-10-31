@@ -1,61 +1,86 @@
 'use client'
 
-import Link from "next/link"
-import { useRouter } from "next/navigation"
+import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
-export default function ListItem({result}) {
-  let router = useRouter()
+export default function ListItem({ result, useremail }) {
+  const [items, setItems] = useState(result);
+  const router = useRouter();
+  const listRef = useRef(null);
+
+  const handleDelete = (index) => {
+    const updatedItems = [...items];
+    updatedItems.splice(index, 1);
+    setItems(updatedItems);
+  };
+
+  useEffect(() => {
+    // 목록이 업데이트될 때마다 스크롤을 맨 위로 이동
+    listRef.current.scrollTop = 0;
+  }, [items]);
+
   return (
     <div className="bg">
-      {/* 글 작성 버튼 */}
       <div className="write-btn">
-      <Link href={'/write'}>
-      <button>
-        <span>글 작성하기</span>
-      </button>
-      </Link>
+        <Link href="/write">
+          <button>
+            <span>글 작성하기</span>
+          </button>
+        </Link>
       </div>
-      
-
-      { result.map((a,i)=>
-          <div className="list-box">
-          <div className="list-item" key={i}>
-            {/* <Link href={'/detail/' + result[i]._id}>{result[i].title}<p>1월 1일</p></Link> */}
-            <a href={'/detail/' + result[i]._id} onClick={()=>{router.prefetch()}}>{result[i].title}<p>1월 1일</p></a>
-            <div className="list-btn">
-            {/* <Link href={'/edit/' + result[i]._id} >✏️</Link> */}
-            <a href={'/edit/' + result[i]._id} onClick={()=>{router.prefetch()}}>✏️</a>
-            <button onClick={(e)=>{
-                fetch('/api/post/delete',
-                {method : 'DELETE' ,
-                 body : result[i]._id})
-                .then((r)=>{
-                  if(r.status == 200) {
-                    return r.json()
-                  } 
-                //   else {
-                   //오류 메세지
-                //   }
-                })
-                .then(()=>{
-                    e.target.parentElement.style.opacity = 0;
-                    setTimeout(()=>{
-                        e.target.parentElement.style.display = 'none';
-                    },1000)
-                })
-                .then((result)=>{ 
-                  //성공시 실행할코드
-                }).catch((error)=>{
-                  //인터넷문제 등으로 실패시 실행할코드
-                  console.log(error)
-                })
-            }}>🗑️</button>
+      <div className="list-container" ref={listRef}>
+        {items.map((a, i) => (
+          <div className="list-box" key={i}>
+            <div className="list-item">
+              <a
+                href={'/detail/' + items[i]._id}
+                onClick={() => {
+                  router.prefetch();
+                }}
+              >
+                {items[i].title}
+                <p>
+                  {a.dateTime}
+                  <span style={{ marginLeft: '20px' }}>작성자 - {a.author}</span>
+                </p>
+              </a>
+              <div className="list-btn">
+                {useremail === a.author ? (
+                  <>
+                    <a
+                      href={'/edit/' + items[i]._id}
+                      onClick={() => {
+                        router.prefetch();
+                      }}
+                    >
+                      ✏️
+                    </a>
+                    <button
+                      onClick={() => {
+                        fetch('/api/post/delete', {
+                          method: 'DELETE',
+                          body: items[i]._id,
+                        })
+                          .then((r) => {
+                            if (r.status === 200) {
+                              handleDelete(i);
+                            }
+                          })
+                          .catch((error) => {
+                            console.log(error);
+                          });
+                      }}
+                    >
+                      🗑️
+                    </button>
+                  </>
+                ) : null}
+              </div>
             </div>
-            
-            
           </div>
-          </div>
-       ) }
+        ))}
+      </div>
     </div>
-  )
+  );
 }

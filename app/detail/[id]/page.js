@@ -16,7 +16,7 @@ export default async function Detail(props) {
     if (session === null) {
         // result가 null인 경우에 대한 처리 (예: 에러 메시지 표시 또는 리다이렉트)
         // 예를 들면, 에러 메시지 표시 후 리다이렉트할 때:
-        return <div>회원가입 및 로그인을 해주세요.</div>;
+        return <div style={{width : '100wh', height : '100vh', display: 'flex', justifyContent : 'center',alignItems : 'center'}}>회원가입 및 로그인을 해주세요.</div>;
     } else {
         if (session) {
             if (result.likeUser && result.likeUser.includes(session.user.email)) {
@@ -30,7 +30,6 @@ export default async function Detail(props) {
         
         return (
             <div className="bg">
-                
               <div>
               <PostLike
                     result={result}
