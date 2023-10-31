@@ -133,10 +133,10 @@ export default function KakaoMap() {
         
         <div className="page-btn">
           {currentPage > 1 && (
-            <button onClick={handlePrevPageClick}>◀️</button>
+            <button style={{background : '#03a9f4', color : 'white'}} onClick={handlePrevPageClick}>◀️</button>
           )}
           {currentPage < Math.ceil(restaurants.length / RESULTS_PER_PAGE) && (
-            <button onClick={handleNextPageClick}>▶️</button>
+            <button style={{background : '#03a9f4', color : 'white'}} onClick={handleNextPageClick}>▶️</button>
           )}
         </div>
       </div>
