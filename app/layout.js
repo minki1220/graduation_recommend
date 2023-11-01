@@ -35,7 +35,7 @@ export default async function RootLayout({ children }) {
       }>
         <div className="navbar">
           {/* 여기에 아이콘 추가하기 */}
-          <span className="logo"><span style={{fontSize : '30px'}}>🤤</span> 오늘 뭐 먹지?</span>
+          <span className="logo"><span style={{fontSize : '32px'}}>🤤</span> 오늘 뭐 먹지?</span>
           <div className='menu'>
             <HomeLink/>
             <FoodRecommendLink/>
@@ -46,7 +46,7 @@ export default async function RootLayout({ children }) {
           <div>
             { 
               session ? (
-                <span style={{ fontWeight: 'bold' }}>
+                <span style={{ fontWeight: 'bold' ,fontSize : '20px'}}>
                   <MypageLink />
                   {session.user.name}님 환영합니다. <LogOutBtn />
                 </span>

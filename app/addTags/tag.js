@@ -27,6 +27,11 @@ export default function Tags() {
     { id: 'dessert', value: '디저트', label: '#디저트' },
     { id: 'cafe', value: '카페', label: '#카페' },
     { id: 'side dish', value: '반찬', label: '#반찬' },
+    { id: 'sugarfruit', value: '탕후루', label: '#탕후루' },
+    { id: 'maratang', value: '마라탕', label: '#마라탕' },
+    { id: 'sushi', value: '초밥', label: '#초밥' },
+    { id: 'gopchang', value: '곱창', label: '#곱창' },
+    { id: 'jungol', value: '전골', label: '#전골' },
   ];
 
   const handleRadioChange = (event, setStateFunction) => {

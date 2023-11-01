@@ -68,7 +68,7 @@ export default function KakaoMap() {
                 if (page < MAX_PAGES) {
                   ps.keywordSearch('음식점', (data, status) => placesSearchCB(data, status, page + 1), {
                     page: page + 1,
-                    radius: 2000,
+                    radius: 1000,
                     location: new kakao.maps.LatLng(latitude, longitude),
                   });
                 } else {
@@ -95,7 +95,7 @@ export default function KakaoMap() {
 
             ps.keywordSearch('음식점', (data, status) => placesSearchCB(data, status, 1), {
               page: 1,
-              radius: 2000,
+              radius: 1000,
               location: new kakao.maps.LatLng(latitude, longitude),
               category_group_code: 'FD6'
             });

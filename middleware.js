@@ -24,6 +24,21 @@ export async function middleware(request){
             return NextResponse.redirect('http://localhost:3000/api/auth/signin')
         }
     }
+    if (request.nextUrl.pathname.startsWith('/list')){
+        if(session == null){
+            return NextResponse.redirect('http://localhost:3000')
+        }
+    }
+    if (request.nextUrl.pathname.startsWith('/detail')){
+        if(session == null){
+            return NextResponse.redirect('http://localhost:3000')
+        }
+    }
+    if (request.nextUrl.pathname.startsWith('/mypage')){
+        if(session == null){
+            return NextResponse.redirect('http://localhost:3000')
+        }
+    }
     if (request.nextUrl.pathname.startsWith('/SignUp')){
         if(session !== null){
             return NextResponse.redirect('http://localhost:3000')
