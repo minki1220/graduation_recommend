@@ -115,7 +115,7 @@ export default function KakaoMap() {
   }, [currentPage]);
 
   return (
-    // <div>
+  
     <div className='bg' >
       <div id="map"></div>
       <div className="list-container">
@@ -152,6 +152,6 @@ export default function KakaoMap() {
         </div>
       )}
     </div>
-    // </div>
+   
   );
 }
