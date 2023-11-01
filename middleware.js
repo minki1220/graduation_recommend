@@ -6,47 +6,47 @@ export async function middleware(request){
 
     if (request.nextUrl.pathname.startsWith('/write')){
         if(session == null){
-            return NextResponse.redirect('http://localhost:3000/api/auth/signin')
+            return NextResponse.redirect('https://graduation-recommend.vercel.app//api/auth/signin')
         }
     }
     if (request.nextUrl.pathname.startsWith('/edit')){
         if(session == null){
-            return NextResponse.redirect('http://localhost:3000/api/auth/signin')
+            return NextResponse.redirect('https://graduation-recommend.vercel.app//api/auth/signin')
         }
     }
     if (request.nextUrl.pathname.startsWith('/addTags')){
         if(session == null){
-            return NextResponse.redirect('http://localhost:3000/api/auth/signin')
+            return NextResponse.redirect('https://graduation-recommend.vercel.app//api/auth/signin')
         }
     }
     if (request.nextUrl.pathname.startsWith('/tagsMap')){
         if(session == null){
-            return NextResponse.redirect('http://localhost:3000/api/auth/signin')
+            return NextResponse.redirect('https://graduation-recommend.vercel.app//api/auth/signin')
         }
     }
     if (request.nextUrl.pathname.startsWith('/list')){
         if(session == null){
-            return NextResponse.redirect('http://localhost:3000')
+            return NextResponse.redirect('https://graduation-recommend.vercel.app/')
         }
     }
     if (request.nextUrl.pathname.startsWith('/detail')){
         if(session == null){
-            return NextResponse.redirect('http://localhost:3000')
+            return NextResponse.redirect('https://graduation-recommend.vercel.app/')
         }
     }
     if (request.nextUrl.pathname.startsWith('/mypage')){
         if(session == null){
-            return NextResponse.redirect('http://localhost:3000')
+            return NextResponse.redirect('https://graduation-recommend.vercel.app/')
         }
     }
     if (request.nextUrl.pathname.startsWith('/SignUp')){
         if(session !== null){
-            return NextResponse.redirect('http://localhost:3000')
+            return NextResponse.redirect('https://graduation-recommend.vercel.app/')
         }
     }
     if (request.nextUrl.pathname.startsWith('/api/auth/signin')){
         if(session !== null){
-            return NextResponse.redirect('http://localhost:3000')
+            return NextResponse.redirect('https://graduation-recommend.vercel.app/')
         }
     }
 }
