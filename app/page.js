@@ -1,7 +1,5 @@
 import MySwiper from "@/components/sliderimg/page";
 
-
-
 export default function Home() {
 
   return (
