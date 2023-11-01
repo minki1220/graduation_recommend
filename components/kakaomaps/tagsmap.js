@@ -145,7 +145,7 @@ export default function KakaoMap() {
               {
                 page: 1,
                 size: 15,
-                radius: 1000,
+                radius: 500,
                 location: new kakao.maps.LatLng(latitude, longitude),
               }
             );
