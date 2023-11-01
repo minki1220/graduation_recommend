@@ -39,7 +39,7 @@ export default function Write(){
           
         }
       } />
-      <img src={src} />
+      <img style={{width : '200px', height : '200px'}}src={src} />
 
     </div>
   )
