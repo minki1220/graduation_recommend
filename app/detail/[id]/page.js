@@ -43,7 +43,7 @@ export default async function Detail(props) {
                 </div>
                 <div>
                 <h1>작성자 - {result.author}</h1>
-                <img src={result.imageURL} alt="게시물 이미지" />
+                <img src={result.imageURL} style={{width : '300px', height : '200px'}}alt="게시물 이미지" />
                 <h3>{result.title}</h3>
                 <p>{result.content}</p>
                 </div>

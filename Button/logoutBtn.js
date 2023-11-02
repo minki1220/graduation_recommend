@@ -18,7 +18,7 @@ export function LogOutBtn() {
       fontWeight: 'bold',
       borderRadius: '2em',
       padding: '1em 2em',
-      marginLeft: '20px'
+      marginLeft: '10px'
     }}>LogOut</button>
   );
 }

@@ -47,8 +47,9 @@ export default async function RootLayout({ children }) {
             { 
               session ? (
                 <span style={{ fontWeight: 'bold' ,fontSize : '18px'}}>
-                  {session.user.name}님 환영합니다. <LogOutBtn />
+                  {session.user.name}님 환영합니다. 
                   <MypageLink />
+                  <LogOutBtn />
                 </span>
               ) : (
                 <span>
