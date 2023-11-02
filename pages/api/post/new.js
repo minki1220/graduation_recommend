@@ -4,7 +4,6 @@ import { authOptions } from "../auth/[...nextauth]";
 
 export default async function handler(req, res) {
   let session = await getServerSession(req, res, authOptions);
-
   let dateTime = "";
   const date = new Date();
   const 연도 = date.getFullYear()
@@ -26,12 +25,12 @@ export default async function handler(req, res) {
     if (req.body.content == '') {
       return res.status(500).json('글내용이 비어있습니다.');
     }
-
+    
     req.body.dateTime = dateTime; // req.body에 dateTime 추가
-
+    
+    
     let db = (await connectDB).db('store');
     let result = await db.collection('post').insertOne(req.body); // await 키워드 추가
-
-    res.redirect(302, '/list');
+    res.status(200).json({ redirect: '/list' });
   }
 }

@@ -1,3 +1,4 @@
+
 import aws from 'aws-sdk'
 export default async function handler(요청, 응답){
     aws.config.update({
@@ -16,6 +17,6 @@ export default async function handler(요청, 응답){
         ['content-length-range', 0, 1048576], //파일용량 1MB 까지 제한
       ],
     })
-
+    
     응답.status(200).json(url)
 }  

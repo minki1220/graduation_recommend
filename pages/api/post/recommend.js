@@ -1,7 +1,7 @@
 import { connectDB } from "@/util/database";
 
 export default async function handler(req,res){
-    // console.log(req.body)
+    
     if(req.method == 'POST'){
         const time1 = req.body.time
         const category1 = req.body.category
@@ -15,9 +15,8 @@ export default async function handler(req,res){
              cuisine : cuisine1 , 
              occasion : occasion1})
         
-        // console.log(result)
         if (result){
-            res.status(200).json({ menu: result.menu });
+            res.status(200).json({ menu: result.menu, img : result.img });
         }
         } 
     }

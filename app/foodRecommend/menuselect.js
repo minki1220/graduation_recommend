@@ -9,6 +9,7 @@ export default function MenuSelector() {
   const [cuisine, setCuisine] = useState('');
   const [occasion, setOccasion] = useState('');
   const [menu, setMenu] = useState(''); // 추가: menu 상태
+  const [img, setImg] = useState('')
 
   const timeOptions = [
     { id: 'morning', value: '아침', label: '아침' },
@@ -59,8 +60,9 @@ export default function MenuSelector() {
       }
 
       const data1 = await response.json();
-
+      
       setMenu(data1.menu);
+      setImg(data1.img)
       
     } catch (error) {
       console.error('Fetch error:', error);
@@ -132,7 +134,7 @@ export default function MenuSelector() {
           ))}
         </div>
         <div>
-          <h3>식사 기회 :</h3>
+          <h3>식사 인원 :</h3>
         </div>
         <div className='container'>
           {occasionOptions.map((option) => (
@@ -157,6 +159,7 @@ export default function MenuSelector() {
       <div className='recommendBtn-box'>
         <h3>추천 메뉴:</h3>
         <p>{menu}</p>
+        <img src={img} style={{maxWidth : '300px', maxHeight : '300px'}} />
       </div>
     </div>
   );
