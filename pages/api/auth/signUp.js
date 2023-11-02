@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     const name = req.body.name;
 
     let db = (await connectDB).db("store");
-    const existingUser = await db.collection("user_cred").findOne({ email });
+    const existingUser = await db.collection("users").findOne({ email });
     
     if (email,password,confirmPassword,name == '') {
       return res.status(500).json('빈칸을 채워주세요.')
