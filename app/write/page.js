@@ -60,6 +60,7 @@ export default function Write() {
 
   return (
     <div className="bg">
+      <div className="write-container">
       <h4>글작성</h4>
         <input
           name="title"
@@ -74,10 +75,11 @@ export default function Write() {
           onChange={(e) => setContent(e.target.value)}
         />
         <button type="submit" onClick={handleSubmit}>
-          전송
+          저장
         </button>
       <input type="file" accept="image/*" onChange={handleFileChange} />
-      <img style={{ width: '200px', height: '200px' }} src={src} />
+      <img style={{ width: '500px', height: '400px' }} src={src} />
+    </div>
     </div>
   );
 }

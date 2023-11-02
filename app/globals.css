@@ -100,3 +100,10 @@ button {
 .dark-mode .home-title {
     color: white;
 }
+
+.write-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
