@@ -1,11 +1,12 @@
 .bg {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   }
 .list-box {
   margin-top: 10px;
   display: flex;
   justify-content: center;
+  
   
 }
 .list-container {
@@ -40,6 +41,7 @@
   opacity: 1;
   transition: all 1s;
   border: 2px solid #eee;
+  
 }
 .list-item h4 {
   font-size: 20px;
